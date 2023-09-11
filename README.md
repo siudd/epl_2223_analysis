@@ -6,6 +6,7 @@
 ## Analysis
 ### Average team age
 <p>Everyone know ManCity is the champion last season.  I want to know if player age have an impact on that with below query</p>
+
 ```sql
 select round(avg(p.age),2) as avg_age
 ,(select round(avg(age),2) as overall_avg_age from epl_player) as overall_avg_age
