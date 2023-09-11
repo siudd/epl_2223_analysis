@@ -3,7 +3,7 @@
 
 
 
-<br>Data from a href="https://www.whoscored.com/Regions/252/Tournaments/2/Seasons/9075/Stages/20934/PlayerStatistics/England-Premier-League-2022-2023">whoscores</a>
+<br>Data from <a href="https://www.whoscored.com/Regions/252/Tournaments/2/Seasons/9075/Stages/20934/PlayerStatistics/England-Premier-League-2022-2023">whoscores</a>
 <br>Tools used:
 <br>GitHub Desktop v3.3.1
 <br>PostgreSQL v16
