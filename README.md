@@ -30,7 +30,7 @@ order by no_of_countries desc, no_of_continents desc
 ```txt
 no_of_countries  no_of_continents  teamname
 ---------------  ----------------  --------
-17	              5                "Fulham"
+17	          5                "Fulham"
 17                4                "Tottenham"
 17                3                "Chelsea"
 15                5                "Leicester"
@@ -69,7 +69,7 @@ order by avg_age desc
 ```txt
 avg_age  overall_avg_age  teamname
 -------  ---------------  --------
-28.04    26.43          	"West Ham"
+28.04    26.43            "West Ham"
 27.94    26.43            "Nottingham Forest"
 27.73    26.43            "Aston Villa"
 27.66    26.43            "Fulham"
