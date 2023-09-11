@@ -6,6 +6,7 @@ join epl_team t on t.teamid = e.teamid
 where e.rating > (select avg(rating) from epl_player)
 --and e.app > (select avg(app) from epl_player)
 --and e.app > 1
+--and e.subon = 0
 group by t.teamname
 order by above_avg_rating_cnt desc
 --select app, avg(app),* from epl_player
