@@ -124,6 +124,55 @@ above_avg_rating_cnt	teamname
 
 Obviously the Big 6 are doing great and align with this.  However, relegated teams (Leicester and Southampton) should have done better with their player rating higher than many others.
 
+### Best Forward of each team
+
+Next, I want to see the number of player with rating above average in the whole EPL in each team.
+
+```sql
+select firstname
+	, lastname
+	, t.teamname
+	, round(rating,2) rating
+	, of_goal goal
+	, of_assisttotal assist
+	, round(of_shotspergame,2) spg
+	, round(of_keypasspergame,2) kppg
+from (
+	select max(rating) as max_rating
+		, teamid
+	from epl_player
+	where positiontext = 'Forward'
+	group by teamid
+	) bf
+join epl_player p on bf.max_rating = p.rating
+join epl_team t on p.teamid = t.teamid
+order by rating desc
+```
+
+```txt
+firstname		lastname			teamname		rating	goal	assist	spg	kppg
+---------		--------			--------		------	----	------	---	----
+"Erling"		"Haaland"			"Man City"		7.54	36	8	3.51	0.86
+"Harry"			"Kane"				"Tottenham"		7.51	30	3	3.42	1.50
+"Gabriel Fernando"	"de Jesus"			"Arsenal"		7.42	11	6	2.96	1.19
+"Ivan"			"Toney"				"Brentford"		7.25	20	4	2.85	0.82
+"Joelinton Cássio"	"Apolinário de Lira"		"Newcastle"		7.24	6	1	1.59	0.81
+"Mohamed"		"Salah Hamed Mahrous Ghaly"	"Liverpool"		7.16	19	12	3.29	1.71
+"Aleksandar"		"Mitrovic"			"Fulham"		7.08	14	1	3.88	0.67
+"Marcus"		"Rashford"			"Man Utd"		7.08	17	5	3.09	0.86
+"Dwight"		"McNeil"			"Everton"		6.99	7	3	1.28	1.36
+"Leandro"		"Trossard"			"Brighton"		6.98	7	2	2.38	1.44
+"Ollie"			"Watkins"			"Aston Villa"		6.96	15	6	2.32	0.84
+"Wilfried"		"Zaha"				"Crystal Palace"	6.82	7	2	2.44	0.96
+"Jarrod"		"Bowen"				"West Ham"		6.81	6	5	1.97	1.26
+"Noni"			"Madueke"			"Chelsea"		6.80	1	0	1.00	1.08
+"Dominic"		"Solanke"			"Bournemouth"		6.79	6	7	2.30	0.64
+"Rodrigo"		"Moreno Machado"		"Leeds"			6.68	13	1	2.16	0.52
+"Matheus"		"Santos Carneiro Da Cunha"	"Wolves"		6.63	2	0	1.53	0.41
+"Ché"			"Adams"				"Southampton"		6.59	5	3	1.68	0.86
+"Ayoze"			"Pérez"				"Leicester"		6.55	0	1	1.00	1.38
+"Taiwo"			"Awoniyi"			"Nottingham Forest"	6.49	10	1	1.30	0.37
+```
 
 
 
