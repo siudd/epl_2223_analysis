@@ -85,8 +85,7 @@ avg_age  overall_avg_age  teamname
 Interestingly, Man City is very close to the average player age.  West Ham got the highest average age.  It seems age doesn't play a very important factor. Younger player maybe better in fitness and/or workrate, but they might have less experiences.  Maybe Man City get a balance of both.
 
 ### Number of players with rating above average
-Next, I want to see the player rating in each team.
-
+Next, I want to see the number of player with rating above average in the whole EPL in each team.
 
 ```sql
 select count(1) as above_avg_rating_cnt
@@ -122,6 +121,8 @@ above_avg_rating_cnt	teamname
 10			"Fulham"
 9			"Leeds"
 ```
+
+Obviously the Big 6 are doing great and align with this.  However, relegated teams (Leicester and Southampton) should have done better with their player rating higher than many others.
 
 
 
