@@ -5,8 +5,7 @@
 
 ## Analysis
 ### Average team age
-<p>Everyone know ManCity is the champion last season.  I want to know if player age have an impact on that.  So I wrote below query</p>
-
+<p>Everyone know ManCity is the champion last season.  I want to know if player age have an impact on that with below query</p>
 ```sql
 select round(avg(p.age),2) as avg_age
 ,(select round(avg(age),2) as overall_avg_age from epl_player) as overall_avg_age
@@ -18,6 +17,23 @@ having avg(p.age) > (select avg(age) as overall_avg_age from epl_player)
 order by avg_age desc
 ```
 
+```
+avg_age  overall_avg_age  teamname
+-------  ---------------  --------
+28.04	26.43	"West Ham"
+27.94	26.43	"Nottingham Forest"
+27.73	26.43	"Aston Villa"
+27.66	26.43	"Fulham"
+27.48	26.43	"Newcastle"
+26.73	26.43	"Crystal Palace"
+26.73	26.43	"Man Utd"
+26.64	26.43	"Leicester"
+26.58	26.43	"Man City"
+26.50	26.43	"Everton"
+26.46	26.43	"Liverpool"
+```
+
+Interestingly, 
 <br><b>Data used:</b>
 <br><a href="https://www.whoscored.com/Regions/252/Tournaments/2/Seasons/9075/Stages/20934/PlayerStatistics/England-Premier-League-2022-2023">Whoscores EPL players statistics</a>
 <br><a href="https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes">ISO 3166 Country Code</a>
