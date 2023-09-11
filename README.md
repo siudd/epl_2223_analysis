@@ -82,7 +82,8 @@ avg_age  overall_avg_age  teamname
 26.46    26.43            "Liverpool"
 ```
 
-Interestingly, Man City is very close to the average player age.  West Ham got the highest average age.  It seems age doesn't play a very important factor. Younger player be better fitness and/or workrate, but they might have less experiences.  Maybe Man City get a balance of both.
+Interestingly, Man City is very close to the average player age.  West Ham got the highest average age.  It seems age doesn't play a very important factor. Younger player maybe better in fitness and/or workrate, but they might have less experiences.  Maybe Man City get a balance of both.
+
 <br><b>Data used:</b>
 <br><a href="https://www.whoscored.com/Regions/252/Tournaments/2/Seasons/9075/Stages/20934/PlayerStatistics/England-Premier-League-2022-2023">Whoscores EPL players statistics</a>
 <br><a href="https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes">ISO 3166 Country Code</a>
