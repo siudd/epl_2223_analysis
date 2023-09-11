@@ -4,8 +4,56 @@
 <p>To import the data into PostgreSQL table, I used <a href="https://sqlizer.io/">SQLizer.IO</a> to convert the raw data into a runable SQL scripts.  Converted queries in <a href="https://github.com/siudd/epl_2223_analysis/tree/main/tables">here</a> and it creates 3 separate tables: <code>whoscores_offensive</code>, <code>whoscores_defensive</code> and <code>whoscores_passing</code>.  However, to normalize the information, I've created 2 views <code>epl_player</code> and <code>epl_team</code>.  And I also need country code data to identify the players with a meaning name, another table <code>iso3166</code> was created as well as a country-country code lookup table.</p>
 
 ## Analysis
+### Team player countries distribution
+<p></p>
+
+```sql
+with player_by_country as (
+	select distinct p.playerid
+	,p.regioncode
+	,t.teamname
+	,i.country
+	,i.continent
+	from epl_player p
+	join epl_team t on p.teamid = t.teamid
+	join iso3166 i on p.regioncode = lower(i.code)
+)
+
+select count(distinct country) as no_of_countries
+,count(distinct continent) as no_of_continents
+,teamname
+from player_by_country
+group by teamname
+order by no_of_countries desc, no_of_continents desc
+```
+
+```txt
+no_of_countries  no_of_continents  teamname
+---------------  ----------------  --------
+17	              5                "Fulham"
+17                4                "Tottenham"
+17                3                "Chelsea"
+15                5                "Leicester"
+15                5                "Brighton"
+14                4                "Wolves"
+14                4                "Brentford"
+14                4                "Nottingham Forest"
+14                4                "Arsenal"
+14                3                "Southampton"
+14                3                "Everton"
+14                3                "Liverpool"
+13                3                "West Ham"
+13                3                "Bournemouth"
+13                2                "Leeds"
+12                3                "Crystal Palace"
+12                3                "Man City"
+12                3                "Newcastle"
+12                3                "Aston Villa"
+12                2                "Man Utd"
+```
+
 ### Average team age
-<p>Everyone know ManCity is the champion last season.  I want to know if player age have an impact on that with below query</p>
+<p>Everyone know ManCity is the champion last season.  I want to know if player age have an impact on that with below query.  I included only team with average player age larger than all player average age.</p>
 
 ```sql
 select round(avg(p.age),2) as avg_age
@@ -18,24 +66,23 @@ having avg(p.age) > (select avg(age) as overall_avg_age from epl_player)
 order by avg_age desc
 ```
 
-
 ```txt
 avg_age  overall_avg_age  teamname
 -------  ---------------  --------
-28.04	26.43	"West Ham"
-27.94	26.43	"Nottingham Forest"
-27.73	26.43	"Aston Villa"
-27.66	26.43	"Fulham"
-27.48	26.43	"Newcastle"
-26.73	26.43	"Crystal Palace"
-26.73	26.43	"Man Utd"
-26.64	26.43	"Leicester"
-26.58	26.43	"Man City"
-26.50	26.43	"Everton"
-26.46	26.43	"Liverpool"
+28.04    26.43          	"West Ham"
+27.94    26.43            "Nottingham Forest"
+27.73    26.43            "Aston Villa"
+27.66    26.43            "Fulham"
+27.48    26.43            "Newcastle"
+26.73    26.43            "Crystal Palace"
+26.73    26.43            "Man Utd"
+26.64    26.43            "Leicester"
+26.58    26.43            "Man City"
+26.50    26.43            "Everton"
+26.46    26.43            "Liverpool"
 ```
 
-Interestingly, 
+Interestingly, Man City is very close to the average player age.  West Ham got the highest average age.
 <br><b>Data used:</b>
 <br><a href="https://www.whoscored.com/Regions/252/Tournaments/2/Seasons/9075/Stages/20934/PlayerStatistics/England-Premier-League-2022-2023">Whoscores EPL players statistics</a>
 <br><a href="https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes">ISO 3166 Country Code</a>
