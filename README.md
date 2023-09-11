@@ -173,7 +173,7 @@ firstname		lastname			teamname		rating	goal	assist	spg	kppg
 "Taiwo"			"Awoniyi"			"Nottingham Forest"	6.49	10	1	1.30	0.37
 ```
 
-No doubt, Haaland statistic is extraordinary among others, with rating, goals and shots per game all above other teams forwards.
+No doubt, Haaland statistic is extraordinary, with rating, goals and shots per game all above other teams forwards.  Salah done exceptional in assist among all forward and key pass per game.  Pérez, however, didn't doing very well and this maybe the reason why Leicester relegated.
 
 <br><b>Data used:</b>
 <br><a href="https://www.whoscored.com/Regions/252/Tournaments/2/Seasons/9075/Stages/20934/PlayerStatistics/England-Premier-League-2022-2023">Whoscores EPL players statistics</a>
