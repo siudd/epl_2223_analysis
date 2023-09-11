@@ -3,7 +3,9 @@
 
 
 
-<br>Data from <a href="https://www.whoscored.com/Regions/252/Tournaments/2/Seasons/9075/Stages/20934/PlayerStatistics/England-Premier-League-2022-2023">whoscores</a>
+<br>Data used: 
+<br><a href="https://www.whoscored.com/Regions/252/Tournaments/2/Seasons/9075/Stages/20934/PlayerStatistics/England-Premier-League-2022-2023">Whoscores EPL players statistics</a>
+<br><a href="https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes">ISO 3166 Country Code</a>
 <br>Tools used:
 <br>GitHub Desktop v3.3.1
 <br>PostgreSQL v16
