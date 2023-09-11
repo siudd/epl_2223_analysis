@@ -5,7 +5,7 @@
 
 ## Analysis
 ### Team player countries distribution
-Players come and go every seasons and the players from various countries might influence team performance.  Let's take a look on each team player composition.
+Players come and go every seasons and whether they come from different countries might influence team performance.  Let's take a look on each team player composition.
 
 ```sql
 with player_by_country as (
