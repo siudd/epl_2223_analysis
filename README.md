@@ -5,7 +5,7 @@
 
 ## Analysis
 ### Team player countries distribution
-<p></p>
+Players come and go every seasons and the players from various countries might influence team performance.  Let's take a look on each team player composition.
 
 ```sql
 with player_by_country as (
@@ -53,7 +53,7 @@ no_of_countries  no_of_continents  teamname
 ```
 
 ### Average team age
-<p>Everyone know ManCity is the champion last season.  I want to know if player age have an impact on that with below query.  I included only team with average player age larger than all player average age.</p>
+Everyone know ManCity is the champion last season.  I want to know if player age have an impact on that with below query.  I included only team with average player age larger than all player average age.
 
 ```sql
 select round(avg(p.age),2) as avg_age
@@ -82,7 +82,7 @@ avg_age  overall_avg_age  teamname
 26.46    26.43            "Liverpool"
 ```
 
-Interestingly, Man City is very close to the average player age.  West Ham got the highest average age.
+Interestingly, Man City is very close to the average player age.  West Ham got the highest average age.  It seems age doesn't play a very important factor. Younger player be better fitness and/or workrate, but they might have less experiences.  Maybe Man City get a balance of both.
 <br><b>Data used:</b>
 <br><a href="https://www.whoscored.com/Regions/252/Tournaments/2/Seasons/9075/Stages/20934/PlayerStatistics/England-Premier-League-2022-2023">Whoscores EPL players statistics</a>
 <br><a href="https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes">ISO 3166 Country Code</a>
