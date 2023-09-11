@@ -17,7 +17,8 @@ having avg(p.age) > (select avg(age) as overall_avg_age from epl_player)
 order by avg_age desc
 ```
 
-```
+
+```txt
 avg_age  overall_avg_age  teamname
 -------  ---------------  --------
 28.04	26.43	"West Ham"
