@@ -125,8 +125,7 @@ above_avg_rating_cnt	teamname
 Obviously the Big 6 are doing great and align with this.  However, relegated teams (Leicester and Southampton) should have done better with their player rating higher than many others.
 
 ### Best Forward of each team
-
-Next, I want to see the number of player with rating above average in the whole EPL in each team.
+Finally, let's see the best forward from each team rating and other offensive statistics.
 
 ```sql
 select firstname
@@ -174,7 +173,7 @@ firstname		lastname			teamname		rating	goal	assist	spg	kppg
 "Taiwo"			"Awoniyi"			"Nottingham Forest"	6.49	10	1	1.30	0.37
 ```
 
-
+No doubt, Haaland statistic is extraordinary among others, with rating, goals and shots per game all above other teams forwards.
 
 <br><b>Data used:</b>
 <br><a href="https://www.whoscored.com/Regions/252/Tournaments/2/Seasons/9075/Stages/20934/PlayerStatistics/England-Premier-League-2022-2023">Whoscores EPL players statistics</a>
