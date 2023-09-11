@@ -84,6 +84,48 @@ avg_age  overall_avg_age  teamname
 
 Interestingly, Man City is very close to the average player age.  West Ham got the highest average age.  It seems age doesn't play a very important factor. Younger player maybe better in fitness and/or workrate, but they might have less experiences.  Maybe Man City get a balance of both.
 
+### Number of players with rating above average
+Next, I want to see the player rating in each team.
+
+
+```sql
+select count(1) as above_avg_rating_cnt
+, t.teamname 
+from epl_player e
+join epl_team t on t.teamid = e.teamid
+where e.rating > (select avg(rating) from epl_player)
+group by t.teamname
+order by above_avg_rating_cnt desc
+```
+
+```txt
+above_avg_rating_cnt	teamname
+--------------------	--------
+19			"Man City"
+19			"Liverpool"
+19			"Chelsea"
+18			"Man Utd"
+15			"Arsenal"
+15			"Aston Villa"
+14			"Newcastle"
+14			"Everton"
+14			"Brighton"
+14			"Tottenham"
+12			"Leicester"
+12			"Crystal Palace"
+11			"Southampton"
+11			"West Ham"
+10			"Brentford"
+10			"Nottingham Forest"
+10			"Bournemouth"
+10			"Wolves"
+10			"Fulham"
+9			"Leeds"
+```
+
+
+
+
 <br><b>Data used:</b>
 <br><a href="https://www.whoscored.com/Regions/252/Tournaments/2/Seasons/9075/Stages/20934/PlayerStatistics/England-Premier-League-2022-2023">Whoscores EPL players statistics</a>
 <br><a href="https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes">ISO 3166 Country Code</a>
